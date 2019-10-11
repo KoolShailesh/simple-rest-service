@@ -1,5 +1,6 @@
 package com.shailesh.pojo;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -14,13 +15,18 @@ import lombok.ToString;
 @Setter
 @Builder
 @ToString
-public class MyResponse {
-	
+public class MyResponse implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3245396460005774338L;
+
 	@JsonProperty("mymessage")
 	private String myMessage;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSz")
-	@JsonProperty("currentdate")
-	private Instant currentdDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ", timezone = "UTC")
+	@JsonProperty("instant")
+	private Instant instant;
 
 }

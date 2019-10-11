@@ -1,0 +1,17 @@
+spring:
+   application:
+    name: sample rest application
+  
+   http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      force-request: true
+      force-response: true
+   
+   jackson:
+    serialization:
+      write-dates-as-timestamps: false 
+  
+ 
