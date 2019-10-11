@@ -17,4 +17,6 @@ Simple Spring Boot 2 Rest Service
 2. /printinstantinput 
 		Another get request and example @PostMapping which returns an Object of MyResponse
 		
-		Curl: curl -H "Content-Type: application/json" --header "Accept: application/json" -d '{"mymessage":"Hello","instant":"2019-10-10T17:26:03.056Z"}' http://localhost:8080/instant/printinstantinput
+		Curl: curl -H "Content-Type: application/json" 
+		--header "Accept: application/json" 
+		-d '{"mymessage":"Hello","instant":"2019-10-10T17:26:03.056Z"}' http://localhost:8080/instant/printinstantinput
