@@ -1,0 +1,15 @@
+.settings
+.project
+.classpath
+.springBeans
+.sts4-cache
+.sonarlint
+.metadata
+**/*.class
+**/target/*
+.lst
+.apt_generated
+.factorypath
+.DS_Store
+**/bin/*
+**/pom.xml.versionsBackup
