@@ -1,6 +1,7 @@
 package com.shailesh.rest;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,24 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shailesh.pojo.InstantResponse;
+import com.shailesh.pojo.LocalDateResponse;
 
 @RestController
-@RequestMapping("/instant/")
-public class InstatntTypeController {
+@RequestMapping("/localdatetime/")
+public class LocalDateTimeTypeController {
 
-	@GetMapping("/instantresponse")
-	public @ResponseBody InstantResponse instantresponse() {
-		Instant now = Instant.parse("2019-10-10T17:26:03.056Z");
+	@GetMapping("/localdateresponse")
+	public @ResponseBody LocalDateResponse getLocalDateResponse() {
+		LocalDateTime now = LocalDateTime.now();
 
 		System.out.println(now);
-		InstantResponse build = InstantResponse.builder().myMessage("Hello").instant(now).build();
+		LocalDateResponse build = LocalDateResponse.builder().myMessage("Hello").localDate(LocalDate.now()).localDateTime(now).build();
 		System.out.println(build);
 		return build;
 	}
 
-	@PostMapping(value = "/printinstantinput")
-	public InstantResponse printinstantinput(@RequestBody InstantResponse myResponseVO) {
+	@PostMapping(value = "/printilocaldateInput")
+	public LocalDateResponse printLocalDateinput(@RequestBody LocalDateResponse myResponseVO) {
 
 		myResponseVO.setMyMessage("Hello with new Message");
 		System.out.println(myResponseVO);

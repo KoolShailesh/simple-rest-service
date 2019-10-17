@@ -20,3 +20,11 @@ Simple Spring Boot 2 Rest Service
 		Curl: curl -H "Content-Type: application/json" 
 		--header "Accept: application/json" 
 		-d '{"mymessage":"Hello","instant":"2019-10-10T17:26:03.056Z"}' http://localhost:8080/instant/printinstantinput
+		
+		
+3./ 
+		Curl: curl 'http://localhost:8080/localdatetime/localdateresponse' 
+		
+4. /localdatetime/printilocaldateInput
+
+        Cur: curl -H "Content-Type: application/json"  --header "Accept: application/json" -d '{"mymessage":"Hello.... ","localdate":"17-10-2019","localdatetime":"17-10-2019 14:04:53"}' http://localhost:8080/localdatetime/printilocaldateInput

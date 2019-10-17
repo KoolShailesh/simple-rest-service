@@ -1,7 +1,11 @@
 spring:
    application:
     name: sample rest application
-  
+   datasource:
+    url: jdbc:postgresql://localhost:5432/mylocal?currentSchema=shaileshtest
+    password: postgres
+    username: postgres
+    driver-class-name: org.postgresql.Driver
    http:
     encoding:
       charset: UTF-8
@@ -12,6 +16,9 @@ spring:
    
    jackson:
     serialization:
-      write-dates-as-timestamps: false 
-  
- 
+      write-dates-as-timestamps: false
+   
+   myapp:
+    usenewval: false
+    newval: hello
+    oldval: world.....

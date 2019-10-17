@@ -1,9 +1,11 @@
 package com.shailesh.pojo;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Builder;
@@ -15,7 +17,7 @@ import lombok.ToString;
 @Setter
 @Builder
 @ToString
-public class MyResponse implements Serializable {
+public class LocalDateResponse implements Serializable {
 
 	/**
 	 * 
@@ -25,8 +27,13 @@ public class MyResponse implements Serializable {
 	@JsonProperty("mymessage")
 	private String myMessage;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ", timezone = "UTC")
-	@JsonProperty("instant")
-	private Instant instant;
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = Shape.STRING)
+	@JsonProperty("localdatetime")
+	private LocalDateTime localDateTime;
+	
+	
+	@JsonFormat(pattern = "dd-MM-yyyy",shape = Shape.STRING)
+	@JsonProperty("localdate")
+	private LocalDate localDate;
 
 }
