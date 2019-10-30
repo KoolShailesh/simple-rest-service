@@ -27,12 +27,12 @@ public class GenericController {
 	@Value("#{ ${spring.myapp.usenewval}  ? '${spring.myapp.newval}' : '${spring.myapp.oldval}}'}")
 	private String message;
 	
-	private static final String template = "Hello, %s! %s";
+	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
 
 	@RequestMapping("/greeting")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new Greeting(counter.incrementAndGet(), String.format(template, name,message));
+		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 
 	@RequestMapping("/checkconnection")
