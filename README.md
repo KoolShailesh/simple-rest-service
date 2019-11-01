@@ -1,6 +1,10 @@
 # simple-rest-service
 Simple Spring Boot 2 Rest Service 
 
+ #Swagger
+ 
+ http://localhost:8080/swagger-ui.html#/
+
 # Rest EndPooints
 
 1. /greeting 
