@@ -1,6 +1,6 @@
 spring:
    application:
-    name: sample rest application
+    name: Sample Rest Application
    datasource:
     url: jdbc:postgresql://localhost:5432/mylocal?currentSchema=shaileshtest
     password: postgres
@@ -22,3 +22,9 @@ spring:
     usenewval: false
     newval: hello
     oldval: world.....
+
+management:
+  metrics:
+   export:
+    elastic:
+     index: metrics-${spring.application.name}

@@ -29,24 +29,33 @@ public class GenericController {
 	@Value("#{ ${spring.myapp.usenewval}  ? '${spring.myapp.newval}' : '${spring.myapp.oldval}}'}")
 	private String message;
 
-	@Value("${secretz.db.url}")
+	///@Value("${secretz.db.url}")
 	private String secretURL;
 
-	@Value("${secretz.db.user}")
+	//@Value("${secretz.db.user}")
 	private String secretUser;
+	
+	@Value("${spring.application.name}")
+	private String applicationName;
+	
+	@Value("${management.metrics.export.elastic.index}")
+	private String metricName;
 
 	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
 
 	@GetMapping(value = "/greeting", produces = MediaType.APPLICATION_JSON_VALUE)
-	// @ResponseBody
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 
 		System.out.println("secretURL " + secretURL);
 		System.out.println("secretUser " + secretUser);
+		System.out.println("Applicaton Name: " + applicationName + " metricName: " + metricName);
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 
+	
+	
+	
 	@RequestMapping("/checkconnection")
 	public String checkCnonnection() {
 		StringBuffer result = new StringBuffer();
