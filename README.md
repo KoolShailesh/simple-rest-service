@@ -33,3 +33,16 @@ Simple Spring Boot 2 Rest Service
 
 
          Cur: curl -H "Content-Type: application/json"  --header "Accept: application/json" -d '{"mymessage":"Hello.... ","localdate":"17-10-2019","localdatetime":"17-10-2019 14:04:53"}' http://localhost:8080/localdatetime/printilocaldateInput
+         
+         
+6. /enums/tv
+
+
+curl -H "Content-Type: application/json" -d "{\"day\":\"1\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv
+
+
+
+curl -H "Content-Type: application/json" -d "{\"day\":\"\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv
+
+
+curl -H "Content-Type: application/json" -d "{\"day\":\"8\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv         
