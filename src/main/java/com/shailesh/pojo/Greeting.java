@@ -1,5 +1,8 @@
 package com.shailesh.pojo;
 
+import lombok.ToString;
+
+@ToString
 public class Greeting {
 
 	private final long id;
