@@ -1,2 +1,2 @@
 org.springframework.boot.env.EnvironmentPostProcessor=com.shailesh.config.SecretEnvironmentPostProcessor
-org.springframework.boot.env.EnvironmentPostProcessor=com.shailesh.config.CustomerEnvironmentPostProcessor
+org.springframework.boot.env.EnvironmentPostProcessor=com.shailesh.config.CustomEnvironmentPostProcessor

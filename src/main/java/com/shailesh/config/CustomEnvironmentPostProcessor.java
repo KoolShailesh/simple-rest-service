@@ -13,7 +13,7 @@ import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
 
 @Order(Ordered.LOWEST_PRECEDENCE)
-public class CustomerEnvironmentPostProcessor implements EnvironmentPostProcessor {
+public class CustomEnvironmentPostProcessor implements EnvironmentPostProcessor {
 	private static final String PROPERTY_SOURCE_NAME = "systemProperties";
 
 	@Override
