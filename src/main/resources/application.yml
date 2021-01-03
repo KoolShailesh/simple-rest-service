@@ -1,6 +1,6 @@
 spring:
    application:
-    name: Sample Rest Application
+    name: Simple Rest Application
    datasource:
     url: jdbc:postgresql://localhost:5432/mylocal?currentSchema=shaileshtest
     password: postgres

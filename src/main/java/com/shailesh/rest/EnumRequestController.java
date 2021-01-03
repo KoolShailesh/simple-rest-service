@@ -11,7 +11,7 @@ import com.shailesh.pojo.EnumRequest;
 
 @RestController
 @RequestMapping(value = "/enums")
-public class EnumREquestController {
+public class EnumRequestController {
 	
 	@PostMapping("tv")
 	public void processEnumRequest(@Valid @RequestBody EnumRequest enumRequest) {

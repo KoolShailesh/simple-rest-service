@@ -1,6 +1,6 @@
 ---
 applications:
-- name: gs-rest-service
+- name: simple-rest-service
   memory: 256M
   instances: 1
   host: rest-service
