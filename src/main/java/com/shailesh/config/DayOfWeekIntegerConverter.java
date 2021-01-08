@@ -5,7 +5,7 @@ import java.time.DayOfWeek;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-@Converter // I tried (autoapply=true) already but did not change anything
+@Converter 
 public class DayOfWeekIntegerConverter implements AttributeConverter<DayOfWeek, Integer> {
     @Override
     public Integer convertToDatabaseColumn(DayOfWeek attribute) {
