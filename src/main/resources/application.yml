@@ -1,30 +1,35 @@
+server:  servlet:    context-path: /g4s
+
 spring:
    application:
     name: Simple Rest Application
-   datasource:
-    url: jdbc:postgresql://localhost:5432/mylocal?currentSchema=shaileshtest
-    password: postgres
-    username: postgres
-    driver-class-name: org.postgresql.Driver
-   http:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
-      force-request: true
-      force-response: true
+#   datasource:
+#    url: jdbc:postgresql://localhost:5432/mylocal?currentSchema=shaileshtest
+#    password: postgres
+#    username: postgres
+#    driver-class-name: org.postgresql.Driver
+   
    
    jackson:
     serialization:
       write-dates-as-timestamps: false
-   
+   output:
+    ansi:
+      enabled: ALWAYS
+     
    myapp:
     usenewval: false
     newval: hello
     oldval: world.....
+    mybigdecimal: 10.5
+    minimumValue: 5.5
+    myURL: http://www.yahoo.com
+    messagewithURL: please click URL <a href="${spring.myapp.myURL}">  here 
 
 management:
   metrics:
    export:
     elastic:
-     index: metrics-${spring.application.name}
+     index: metrics-${spring.application.name}#server:#  servlet:#    encoding:#      charset: UTF-8#      enabled: true#      force-request: true#      force-response: true#      force: true
+
+

@@ -1,21 +1,22 @@
 package com.shailesh.controller;
 
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shailesh.domain.Template;
-import com.shailesh.repository.MyTemplateRepository;
 import com.shailesh.vo.Greeting;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8181")
 public class GreetingController {
 
 	
@@ -23,9 +24,12 @@ public class GreetingController {
 	@Qualifier("encryptorBean")
 	private StringEncryptor encryptor;
 	
+	@Value("${spring.myapp.mybigdecimal}")
+	private BigDecimal bigdecimal; 
 	
-	@Autowired
-	MyTemplateRepository templateRepo;
+	@Value("${spring.myapp.messagewithURL}")
+	private String message;
+	
 	
 	
 	@Autowired
@@ -34,22 +38,18 @@ public class GreetingController {
     private static final String template = "Hello, %s ! and encrpted is %s and encoded string is %s";
     private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/greeting")
+    @RequestMapping("/greeting1")
     public Greeting greeting(@RequestParam(value="name", defaultValue="LKjuy67$%deklj") String name) {
         String encode = encryptor.encrypt("LKjuy67$%deklj");
         System.out.println(encode);
 		Greeting greeting = new Greeting(counter.incrementAndGet(),
-                            String.format(template, name,encryptor.encrypt(name),encode));
+                            String.format(template, name,encryptor.encrypt(name),encode) +message );
         
-//        System.out.println(encoder.);
+        System.out.println(bigdecimal);
+        
+        System.out.println("Message is "  + message);
 		return greeting;
     }
-    @RequestMapping("/template")
-    public List<Template> getTempldate() {
-    	
-    	char activeFlag ='Y';
-		String templateName = "hello";
-		return templateRepo.findByNettingTemplateId("1");
-    }
+ 
     
 }

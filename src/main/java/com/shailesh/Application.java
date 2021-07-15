@@ -1,8 +1,5 @@
 package com.shailesh;
 
-import java.time.DayOfWeek;
-import java.time.LocalTime;
-
 import javax.annotation.PostConstruct;
 
 import org.jasypt.encryption.StringEncryptor;
@@ -14,24 +11,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.BCryptVersion;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.shailesh.domain.OpeningHours;
-import com.shailesh.repository.OpeningHoursRepository;
-
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
-@EnableJpaRepositories
+//@EnableJpaRepositories
 public class Application {
 
 	@Autowired
 	@Qualifier("passwordEncoder")
 	PasswordEncoder encoder;
 
-	@Autowired
-	private OpeningHoursRepository hoursRepository;
+//	@Autowired
+//	private OpeningHoursRepository hoursRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -41,14 +33,14 @@ public class Application {
 	@PostConstruct
 	public void printPassword() {
 		
-		OpeningHours openingHours= OpeningHours.builder().closingTime(LocalTime.now()).day(DayOfWeek.SUNDAY).build();
+		
 		
 		//hoursRepository.save(openingHours);
 		
-		LocalTime shopClosingTimeOn = 
-				hoursRepository.getShopClosingTimeOn(DayOfWeek.SUNDAY);
+//		LocalTime shopClosingTimeOn = 
+//				hoursRepository.getShopClosingTimeOn(DayOfWeek.SUNDAY);
 		
-		System.out.println(">>> >>>>>>>>>" + shopClosingTimeOn);
+//		System.out.println(">>> >>>>>>>>>" + shopClosingTimeOn);
 		
 		System.err.println(encoder.encode("sssssssssssssssss"));
 	}
@@ -70,11 +62,8 @@ public class Application {
 
 	@Bean(name = "passwordEncoder")
 	public BCryptPasswordEncoder getPasswordEncoder() {
-		
-		
-		
 
-		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(BCryptVersion.$2B);
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 		return bCryptPasswordEncoder;
 
 	}
