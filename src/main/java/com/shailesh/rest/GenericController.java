@@ -38,7 +38,7 @@ public class GenericController {
 	private final AtomicLong counter = new AtomicLong();
 
 	@GetMapping(value = "/greeting", produces = MediaType.APPLICATION_JSON_VALUE)
-	@CrossOrigin(origins = "192.168.29.118")
+	@CrossOrigin(origins = "192.168.29.118",maxAge = 180)
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 
 		System.out.println("secretURL " + secretURL);

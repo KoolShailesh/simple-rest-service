@@ -5,7 +5,7 @@ Simple Spring Boot 2 Rest Service
  
  http://localhost:8080/swagger-ui.html#/
 
-# Rest EndPooints
+# Rest EndPoints
 
 1. /greeting 
 		This  uses get request,  example of @RequestMapping which returns an POJO Object of Greeting
@@ -26,23 +26,20 @@ Simple Spring Boot 2 Rest Service
 		-d '{"mymessage":"Hello","instant":"2019-10-10T17:26:03.056Z"}' http://localhost:8080/instant/printinstantinput
 		
 		
-4./ 
-		Curl: curl 'http://localhost:8080/localdatetime/localdateresponse' 
+4. /localdateresponse
+			Curl: curl 'http://localhost:8080/localdatetime/localdateresponse' 
 		
 5. /localdatetime/printilocaldateInput
 
 
-         Cur: curl -H "Content-Type: application/json"  --header "Accept: application/json" -d '{"mymessage":"Hello.... ","localdate":"17-10-2019","localdatetime":"17-10-2019 14:04:53"}' http://localhost:8080/localdatetime/printilocaldateInput
+         CurL: curl -H "Content-Type: application/json"  --header "Accept: application/json" -d '{"mymessage":"Hello.... ","localdate":"17-10-2019","localdatetime":"17-10-2019 14:04:53"}' http://localhost:8080/localdatetime/printilocaldateInput
          
          
 6. /enums/tv
 
 
-curl -H "Content-Type: application/json" -d "{\"day\":\"1\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv
+		curl -H "Content-Type: application/json" -d "{\"day\":\"1\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv
 
+		curl -H "Content-Type: application/json" -d "{\"day\":\"\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv
 
-
-curl -H "Content-Type: application/json" -d "{\"day\":\"\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv
-
-
-curl -H "Content-Type: application/json" -d "{\"day\":\"8\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv         
+		curl -H "Content-Type: application/json" -d "{\"day\":\"8\",\"tvprogram\":\"Arrow\",\"channel\":\"ABC\"}" localhost:8080/enums/tv         
